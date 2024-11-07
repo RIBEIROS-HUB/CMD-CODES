@@ -1,0 +1,44 @@
+@echo off
+
+:: 1 - Clonar um repositório Git para a unidade C:
+set REPO_URL=https://github.com/RIBEIROS-HUB/CMD-CODES.git
+set DESTINO=C:\CMD-CODES
+echo Clonando o repositório %REPO_URL% para %DESTINO%...
+git clone %REPO_URL% %DESTINO%
+echo.
+
+:: 2 - Acessar a pasta do repositório clonado
+cd %DESTINO%
+
+:: 3 - Configurar o Nome de Usuário e Email do Git
+echo Configurando o usuário e email do Git...
+git config user.name "RIBEIROS-HUB"
+git config user.email "daniel.santana64@etec.sp.gob.br"
+echo.
+
+:: 4 - Criar um arquivo de texto que mostre o hostname da máquina
+echo Obtendo o hostname...
+hostname > hostname.txt
+echo Nome do host salvo em hostname.txt
+echo.
+
+:: 5 - Criar um arquivo de texto que mostre o IP da máquina
+echo Obtendo o IP da máquina...
+ipconfig | findstr /i "IPv6" > ip.txt
+echo Endereço IP salvo em ip.txt
+echo.
+
+:: 6 - Fazer o commit desses arquivos
+echo Adicionando hostname.txt e ip.txt ao commit...
+git add hostname.txt ip.txt
+git commit -m "Adiciona arquivos de hostname e IP da máquina"
+echo.
+
+:: 7 - Enviar para o repositório do GitHub
+echo Enviando o commit para o repositório remoto...
+git push origin master
+echo.
+
+echo Script concluído com sucesso.
+pause
+
