@@ -1,0 +1,1 @@
+   Endere‡o IPv6 de link local . . . . . . . . : fe80::a7c0:6994:c80:f055%13
